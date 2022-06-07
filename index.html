@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class = "top">
+    <div class ="top">
         <div>
             <h1>You</h1>
             <form>
@@ -18,27 +19,22 @@
                 </select>
                 <button id = "btn">Shoot</button>
             </form>
-        <h1 id = "playerSelection"></h1>
+            <h1 id = "playerSelection"></h1>
         </div>
-        
         <div>
             <h1>NPC</h1>
             <h2 id = "npcSelection">Choosing...</h2>
         </div>
-        
     </div>
-    <section>
-
-        <h1 id = "game-results"></h1>
-        <h2 id = "scoreBoard"></h2>
+    <section class = "bottom-results">
+        <div class = "results">
+            <h1>game results</h1>
+            <h1 id = "game-results"></h1>
+            <h2 id = "scoreBoard"></h2>
+            <h2 id = "rounds"></h2>
+        </div>
+        
     </section>
-    
-
-
-
-
-
-
     <script src = "app.js"></script>
 </body>
 </html>

@@ -1,14 +1,12 @@
 
-
-const game = () => {
     var npcSelection = document.getElementById("npcSelection")
     var playerSelection = document.getElementById("playerSelection")
     var gameResults = document.getElementById("game-results")
     var shoot = document.querySelector('#shoot')
     var btn= document.querySelector('#btn')
+    var roundNumber = document.getElementById('rounds')
 
     var scoreBoard = document.getElementById('scoreBoard')
-    var i = 0
 
 
     var possibilities = [
@@ -28,6 +26,9 @@ const game = () => {
     ]
     var playerOneScore = 0;
     var playerTwoScore = 0;
+    var rounds = 0
+
+    
 
 
 
@@ -57,22 +58,48 @@ const game = () => {
         }
 
     }
-        while(i < 5){
-            btn.onclick = (event) => {
-                event.preventDefault()
-                var playerOne = playerPlay(shoot.value)
-                var playerTwo = computerPlay()
-                getGameResults(playerOne, playerTwo)
-                scoreBoard.innerHTML = `You : ${playerOneScore} CPU : ${playerTwoScore}`
-                i++
-            }
-            return alert("The Rounds are over")
-        }
+
+    const getRoundResults = (pOne, pTwo) => {
         
-}
+        if(pOne > pTwo){
+            return "You"
+        }
+        else{
+            return "The computer"
+        }
+    }
 
 
-game()
+    btn.onclick = (e) => {
+        if(rounds <=4){
+            e.preventDefault()
+            var playerOne = playerPlay(shoot.value)
+            var playerTwo = computerPlay()
+            getGameResults(playerOne, playerTwo)
+            scoreBoard.innerHTML = `You : ${playerOneScore} CPU : ${playerTwoScore}`
+            roundNumber.innerHTML = `Round ${rounds}`
+            rounds++
+        }
+        else{
+            var finalResults = getRoundResults(playerOneScore, playerTwoScore)
+            alert(`The rounds are over! ${finalResults} won! Click 'OK' to restart.`)
+            playerOneScore = 0
+            playerTwoScore = 0
+            rounds = 0
+        }
+    }
+
+    
+
+    
+        
+
+
+
+
+
+
+
 
     
     
